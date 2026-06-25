@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kado Digital untuk Ayu</title>
+    <!-- Memanggil Google Fonts yang Estetik -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ornamen Hiasan di Pojok Layar -->
+    <div class="corner-decoration top-left">🌸</div>
+    <div class="corner-decoration top-right">✨</div>
+    <div class="corner-decoration bottom-left">✨</div>
+    <div class="corner-decoration bottom-right">🌸</div>
+
+    <!-- Efek Partikel Bunga Berguguran -->
+    <div class="flower-particles" id="particles-container"></div>
+
+    <!-- HALAMAN 1: LOCKSCREEN / PIN -->
+    <div id="screen-lock" class="screen active">
+        <div class="lock-container">
+            <!-- Hiasan gembok dengan buket/bunga -->
+            <div class="lock-wrapper">
+                <span class="flower-badge">💐</span>
+                <div class="lock-icon">🔒</div>
+            </div>
+            <h3>hayolo, apa yaa kode nyaa</h3>
+            <div class="pin-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="keypad">
+                <button onclick="pressKey(1)">1</button>
+                <button onclick="pressKey(2)">2</button>
+                <button onclick="pressKey(3)">3</button>
+                <button onclick="pressKey(4)">4</button>
+                <button onclick="pressKey(5)">5</button>
+                <button onclick="pressKey(6)">6</button>
+                <button onclick="pressKey(7)">7</button>
+                <button onclick="pressKey(8)">8</button>
+                <button onclick="pressKey(9)">9</button>
+                <button onclick="clearKey()">Reset</button>
+                <button onclick="pressKey(0)">0</button>
+                <button onclick="deleteKey()">⌫</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HALAMAN 2: ANIMASI TEKS HATI -->
+    <div id="screen-heart" class="screen">
+        <div class="heart-animation-container">
+            <div class="heart-shape">❤️</div>
+            <h2 class="fade-in-text">Ayu Raisya Zahra</h2>
+            <button class="btn" onclick="nextScreen('screen-intro')">KETUK UNTUK MEMBUKA</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 3: INTRO TIRAI -->
+    <div id="screen-intro" class="screen">
+        <div class="intro-container">
+            <p class="subtitle">PERTUNJUKAN SPESIAL</p>
+            <h1 class="serif-title">Panggung buat kamu</h1>
+            <p class="target-name">untuk Ayu Raisya Zahra</p>
+            <button class="btn-gold" onclick="nextScreen('screen-gallery')">Buka tirai</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 4: GALERI FOTO (BABAK 1-3) -->
+    <div id="screen-gallery" class="screen">
+        <div class="gallery-container">
+            <span id="babak-title" class="babak-tag">BABAK 1 / 3</span>
+            <div class="card-photo">
+                <img id="gallery-img" src="https://via.placeholder.com/400x500" alt="Foto">
+                <p id="gallery-desc" class="caption">setiapp pap yang kamuu kasii mungkinn peyy ga selaluu ngomong cantikk, tapiii...</p>
+            </div>
+            <button id="btn-next-gallery" class="btn-gold" onclick="nextGallery()">Lanjut ceritanya</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 5: PESAN PENUTUP & BUKET -->
+    <div id="screen-closing" class="screen">
+        <div class="closing-container">
+            <p class="subtitle">STANDING OVATION</p>
+            <h2 class="serif-title">makasii buat selaluu ada</h2>
+            <div class="letter-box">
+                <p>"maapp kalo aku ga seromantis mantan-mantan kamu, sama aku bukann banyakk adegann romantiss malahh plengerr semuaa hahahaha"</p>
+                <p class="signature">— Peyyy, buat Ayu Raisya Zahra</p>
+            </div>
+            <button class="btn-gold" onclick="nextScreen('screen-bouquet')">Lihat bouquet</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 6: BUKET BUNGA AKHIR -->
+    <div id="screen-bouquet" class="screen">
+        <div class="bouquet-container">
+            <!-- Ornamen bunga besar di belakang buket -->
+            <div class="bouquet-glow"></div>
+            <img class="bouquet-img" src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=600" alt="Bouquet Bunga">
+            <div class="bouquet-card">
+                <p class="subtitle">APRESIASI</p>
+                <h3 class="serif-title">Thank You for Staying<br><span style="font-size: 18px; font-weight: normal;">untuk Ayu Raisya Zahra</span></h3>
+                <p class="love-text">i love youu sayanggg 💕</p>
+                <ul class="flower-meaning">
+                    <li><span>🌸 Pink rose</span> <span>· Gratitude</span></li>
+                    <li><span>🦋 Blue hydrangea</span> <span>· Gratitude</span></li>
+                    <li><span>🌼 White daisy</span> <span>· Innocence</span></li>
+                </ul>
+                <button class="btn-dark" onclick="resetApp()">Back to card</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
