@@ -1,5 +1,5 @@
 // Atur PIN akses di sini (Contoh: 1234)
-const CORRECT_PIN = "1234"; 
+const CORRECT_PIN = "310526"; 
 let currentPin = "";
 
 // Data Konten Foto & Caption Cerita (Babak 1 - 3)
@@ -119,3 +119,47 @@ function resetApp() {
     document.getElementById('gallery-desc').innerText = galleryData[0].desc;
     nextScreen('screen-lock');
 }
+
+/* --- EFFECT OVERLAY TEXT HEART --- */
+.heart-animation-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart-text-matrix {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.heart-txt {
+    position: absolute;
+    font-size: 8px;
+    font-weight: bold;
+    color: rgba(165, 180, 252, 0.35); /* Warna biru muda transparan seperti di video */
+    font-family: 'Montserrat', sans-serif;
+    transform: translate(-50%, -50%);
+    animation: pulseText 2s infinite ease-in-out;
+    white-space: nowrap;
+}
+
+.heart-center-content {
+    position: relative;
+    z-index: 10;
+    background: radial-gradient(circle, rgba(11,15,25,0.8) 40%, rgba(11,15,25,0) 100%);
+    padding: 40px;
+    border-radius: 50%;
+}
+
+@keyframes pulseText {
+    0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.05); color: #fb7185; }
+    }
+        
