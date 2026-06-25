@@ -1,0 +1,163 @@
+/* --- CSS GLOBAL & BACKGROUND --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0b0f19;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* --- DEKORASI POJOK LAYAR --- */
+.corner-decoration {
+    position: fixed;
+    font-size: 24px;
+    z-index: 10;
+    opacity: 0.6;
+    pointer-events: none;
+    user-select: none;
+}
+.top-left { top: 20px; left: 20px; }
+.top-right { top: 20px; right: 20px; }
+.bottom-left { bottom: 20px; left: 20px; }
+.bottom-right { bottom: 20px; right: 20px; }
+
+/* --- PARTIKEL BUNGA --- */
+.flower-particles {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+.particle {
+    position: absolute;
+    color: rgba(255, 182, 193, 0.7); /* Warna pink soft */
+    font-size: 14px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
+/* --- SISTEM HALAMAN --- */
+.screen {
+    display: none;
+    position: absolute;
+    width: 100%;
+    max-width: 420px;
+    height: 100vh;
+    background: radial-gradient(circle at center, #161f36 0%, #070a12 100%);
+    padding: 30px 20px;
+    overflow-y: auto;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+}
+
+.screen.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* --- TIPOGRAFI / FONT CUSTOM --- */
+.serif-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #f3dfa2; /* Warna gold mewah soft */
+    margin: 15px 0;
+}
+h3 {
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+.subtitle {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a5b4fc;
+}
+
+/* --- TOMBOL --- */
+.btn, .btn-gold, .btn-dark {
+    padding: 13px 35px;
+    border-radius: 30px;
+    border: none;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.btn { background: #ffffff; color: #0b0f19; }
+.btn-gold { background: linear-gradient(135deg, #d4af37, #f3cf65); color: #0b0f19; }
+.btn-dark { background: #161f36; color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,175,55,0.4); }
+
+/* --- SCREEN 1: KUNCI / PIN --- */
+.lock-wrapper { position: relative; margin-bottom: 15px; }
+.lock-icon { font-size: 40px; }
+.flower-badge { position: absolute; top: -10px; right: -10px; font-size: 20px; }
+.pin-dots { display: flex; gap: 15px; margin: 25px 0 35px 0; }
+.dot { width: 12px; height: 12px; border: 2px solid rgba(255,255,255,0.4); border-radius: 50%; transition: 0.2s; }
+.dot.filled { background-color: #f3dfa2; border-color: #f3dfa2; box-shadow: 0 0 10px #f3dfa2; }
+.keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 240px; }
+.keypad button {
+    background: rgba(255, 255, 255, 0.04);
+    color: white; border: 1px solid rgba(255,255,255,0.1); padding: 15px;
+    font-size: 16px; border-radius: 50%; cursor: pointer;
+    width: 55px; height: 55px; transition: all 0.2s ease;
+}
+.keypad button:active { background: rgba(255, 255, 255, 0.2); transform: scale(0.9); }
+
+/* --- SCREEN 2: ANIMASI HATI --- */
+.heart-shape { font-size: 50px; animation: pulse 1.2s infinite; margin-bottom: 25px; }
+.fade-in-text { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-style: italic; margin-bottom: 30px; color: #f3dfa2;}
+
+/* --- SCREEN 4: GALERI FOTO --- */
+.babak-tag { color: #d4af37; font-size: 12px; letter-spacing: 3px; font-weight: 600; }
+.card-photo {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 12px; border-radius: 20px;
+    margin: 20px 0; border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.card-photo img { width: 100%; max-height: 350px; object-fit: cover; border-radius: 14px; }
+.caption { font-family: 'Cormorant Garamond', serif; margin-top: 15px; font-size: 19px; color: #e0e7ff; line-height: 1.4; font-style: italic; padding: 0 10px; }
+
+/* --- SCREEN 5 & 6: CLOSING & BUKET --- */
+.letter-box { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; margin: 30px 0; color: #d1d5db; line-height: 1.5; padding: 0 15px; }
+.signature { margin-top: 20px; font-family: 'Montserrat', sans-serif; font-size: 12px; color: #d4af37; font-weight: 600; font-style: normal; letter-spacing: 1px;}
+
+.bouquet-container { position: relative; width: 100%; display: flex; flex-direction: column; align-items: center; }
+.bouquet-glow { position: absolute; width: 200px; height: 200px; background: #fb7185; filter: blur(100px); opacity: 0.15; top: 50px; z-index: 1; }
+.bouquet-img { width: 70%; max-width: 220px; border-radius: 20px; margin-bottom: -20px; z-index: 2; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); }
+.bouquet-card { background: #ffffff; color: #1e293b; padding: 35px 25px 25px 25px; border-radius: 24px; text-align: center; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 1; }
+.bouquet-card .serif-title { color: #1e293b; font-size: 26px; margin-top: 5px; }
+.love-text { color: #f43f5e; font-weight: 600; font-size: 14px; margin: 12px 0 20px 0; }
+.flower-meaning { list-style: none; margin: 15px 0; border-top: 1px solid #f1f5f9; padding-top: 15px; text-align: left; }
+.flower-meaning li { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px; color: #64748b; }
+.flower-meaning li span:first-child { font-weight: 600; color: #334155; }
+
+/* --- ANIMASI KEYFRAMES --- */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+      
