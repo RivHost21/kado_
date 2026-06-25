@@ -161,3 +161,56 @@ h3 {
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
       
+// Fungsi Math untuk memplot teks "I Love You" berbentuk hati
+function generateHeartText() {
+    const container = document.getElementById('heart-text-container');
+    if (!container) return;
+
+    const totalTexts = 120; // Jumlah teks "I love you" yang membentuk pola
+    
+    for (let i = 0; i < totalTexts; i++) {
+        // Rumus matematika untuk bentuk hati (Cardioid)
+        const angle = (i / totalTexts) * 2 * Math.PI;
+        
+        // Menghitung koordinat X dan Y (skala disesuaikan dengan layar HP)
+        const x = 16 * Math.pow(Math.sin(angle), 3);
+        const y = 13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle);
+        
+        // Ubah koordinat ke persen agar pas di tengah screen
+        const leftPos = 50 + (x * 2.5); // 2.5 adalah multiplier lebar
+        const topPos = 45 - (y * 2.5);  // 2.5 adalah multiplier tinggi (dikurang karena koordinat Y y-axis terbalik)
+
+        const textNode = document.createElement('div');
+        textNode.classList.add('heart-txt');
+        textNode.innerText = "I love you";
+        
+        // Beri sedikit delay animasi acak agar efek kelap-kelipnya estetik
+        textNode.style.animationDelay = (Math.random() * 2) + 's';
+        textNode.style.left = leftPos + '%';
+        textNode.style.top = topPos + '%';
+        
+        container.appendChild(textNode);
+    }
+}
+
+// Modifikasi fungsi pengecekan PIN agar memicu pembuatan hati saat PIN benar
+const ORIGINAL_pressKey = pressKey;
+pressKey = function(num) {
+    if (currentPin.length < 4) {
+        currentPin += num;
+        updateDots();
+    }
+    
+    if (currentPin.length === 4) {
+        setTimeout(() => {
+            if (currentPin === CORRECT_PIN) {
+                nextScreen('screen-heart');
+                generateHeartText(); // <--- SINKRONISASI DISINI
+            } else {
+                alert("Kodenya salah, coba ingat-ingat lagi! 🤫");
+                clearKey();
+            }
+        }, 300);
+    }
+                    }
+    
